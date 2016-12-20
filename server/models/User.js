@@ -4,18 +4,37 @@ var mongoose = require('mongoose');
 // create the schema
 
 
-var UserSchema = new mongoose.Schema({
+var userSchema = new Schema({
   username: {
     type: String,
-    required: true,
+    index: true,
+    type: required,
     unique: true
   },
-
-  password: {
-    type: String,
-    required: true
-  }
+  password: String,
+  type: required,
+  photos: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Photos'
+  }]
 });
 
+var photoSchema = new Schema({
+  title: String,
+  filePath: String,
+  createdAt: Date,
+  analyses: [],
+  tags: []
+});
+
+
 module.exports = mongoose.model('User', UserSchema);
-// register the schema as a model
+module.exports = mongoose.model('Photos', photoSchema);
+
+
+
+
+
+
+
+
