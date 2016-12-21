@@ -1,0 +1,64 @@
+<div id="dash" ng-controller=""> <!-- NOTE: maybe userController? -->
+
+  <div id="upload_image">
+
+    <form action="/users/" method="post"> <!-- NOTE: which action lmao -->
+      <input type="file" name="image">
+      <input type="text" name="tags" placeholder="tags">
+      <input type="submit" value="Upload" class="small button">
+    </form>
+
+  </div>
+
+
+
+  <div id="user_photos" style="background-color: #222; box-shadow: 50px inset;">
+
+    <div class="row" data-equalizer data-equalize-on="medium" id="groups">
+      <div class="medium-4 columns">
+        <div class="callout" data-equalizer-watch>
+          <img src="http://www.lorempixel.com/100/100/cats">
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="callout" data-equalizer-watch>
+          <img src="http://www.lorempixel.com/100/100/city">
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="callout" data-equalizer-watch>
+          <img src= "http://www.lorempixel.com/100/100/food">
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-equalizer data-equalize-on="medium" id="groups">
+      <div class="medium-4 columns">
+        <div class="callout" data-equalizer-watch>
+          <img src="http://www.lorempixel.com/100/100/nightlife">
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="callout" data-equalizer-watch>
+          <img src="http://www.lorempixel.com/100/100/nature">
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="callout" data-equalizer-watch>
+          <img src= "http://www.lorempixel.com/100/100/technics">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="switch large" data-toggle="offCanvasLeft">
+    <input class="switch-input" id="largeSwitch" type="checkbox" name="exampleSwitch">
+    <label class="switch-paddle" for="largeSwitch">
+      <span class="show-for-sr">Show Large Elephants</span>
+    </label>
+  </div>
+
+</div>

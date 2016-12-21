@@ -1,18 +1,26 @@
 {
-  "name": "userLogin",
+  "name": "photoJournal",
   "authors": [
     "cutecoley <manjula.manicka@gmail.com>"
   ],
-  "description": "",
-  "main": "",
+  "description": "wew",
+  "main": "server.js",
   "license": "MIT",
-  "homepage": "",
-  "private": true,
+  "homepage": "https://github.com/manjulacode/photoJournal",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "keywords": [
+    "wew"
+  ],
+  "dependencies": {
+    "angular-route": "^1.6.0",
+    "angular-messages": "^1.6.0",
+    "foundation": "^5.5.3",
+    "angular-cookies": "^1.6.0"
+  }
 }

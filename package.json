@@ -1,0 +1,32 @@
+{
+  "name": "photo_journal",
+  "version": "1.0.0",
+  "description": "wew",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jwt-simple": "^0.5.1",
+    "mongod": "^1.3.0",
+    "mongoose": "^4.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "wew",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manjulacode/photoJournal.git"
+  },
+  "keywords": [
+    "wew"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manjulacode/photoJournal/issues"
+  },
+  "homepage": "https://github.com/manjulacode/photoJournal#readme"
+}

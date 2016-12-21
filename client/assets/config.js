@@ -10,7 +10,11 @@ app.config(function($routeProvider) {
         templateUrl: 'partials/signup.html',
         controller: 'AuthController'
     })
-    
+    .when('/users/dash/', {
+        templateUrl: 'partials/user_dashboard.html',
+        controller: 'AuthController'
+    })
+
     .otherwise({
         redirectTo: '/auth'
     })
