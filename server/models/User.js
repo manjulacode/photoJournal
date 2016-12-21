@@ -1,9 +1,6 @@
 // require mongoose
 var mongoose = require('mongoose');
 
-// create the schema
-
-
 var userSchema = new Schema({
   username: {
     type: String,
@@ -17,24 +14,10 @@ var userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Photos'
   }]
-});
-
-var photoSchema = new Schema({
-  title: String,
-  filePath: String,
-  createdAt: Date,
-  analyses: [],
-  tags: []
+},
+{
+  timestamps: true 
 });
 
 
 module.exports = mongoose.model('User', UserSchema);
-module.exports = mongoose.model('Photos', photoSchema);
-
-
-
-
-
-
-
-
