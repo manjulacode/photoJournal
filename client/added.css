@@ -1,0 +1,23 @@
+#signin, #signup, #dash{
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#groups{
+  margin-bottom: 10px;
+}
+
+h1{
+  border: outset white 5px;
+}
+
+h2{
+  border: inset white 5px;
+}
+
+.error{
+  color:red;
+}
