@@ -15,7 +15,7 @@ function MicrosoftVision() {
         url: photoURL
       }
     }).then(function(res) {
-      console.log('microsoft api response:', res.tags)
+      console.log('microsoft api response:', res)
       return res.tags;
     }).catch(function(err) {
       console.log('err requesting from microsoft', err);

@@ -19,6 +19,8 @@ var upload = multer({
     s3: s3,
     acl: 'public-read',
     bucket: albumBucketName,
+    contentType: multerS3.AUTO_CONTENT_TYPE,
+    contentDisposition: multerS3.INLINE,
     metadata: function (req, file, cb) {
       cb(null, {fieldName: file.fieldname});
     },

@@ -39,7 +39,7 @@ app.factory('userFactory', function ($http, $location, $window, Upload) {
     $location.path('/');
   };
   
-  factory.getPics = function () {
+  factory.getPics = function (callback) {
     var user = $window.localStorage.getItem('username');
     $http.get('/user/'+user).then(function(returned_data) {
       console.log('returned_data ', returned_data);

@@ -37,13 +37,18 @@ app.controller('AuthController', function($scope, userFactory, $window, $locatio
     userFactory.upload(file, function() {
       console.log('upload successful');
     })
+    $scope.getPics();
   };
 
   $scope.getPics = function() {
     console.log('getPics ');
     userFactory.getPics(function(data) {
-      console.log('data from getPics: ', data);
-      $scope.userPhotos = data;
+      console.log('data from getPics: ', data.user.photos[data.user.photos.length -1].imageUrl);
+      console.log('data from getPics: ', data.user.photos);
+      
+        $scope.photos = data.user.photos.slice(0,3)
+    
+      $scope.userPhotos = data.user.photos.slice(3);
     })
   }
 

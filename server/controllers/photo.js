@@ -33,6 +33,10 @@ function PhotoController(){
               }
             });
             doc.apiResponse = tags;
+            // if (response.description) {
+            //   doc.title = doc.title || response.description.captions[0].text;
+            
+            // }
             doc.save();
             console.log('doc  ',doc)
           })
