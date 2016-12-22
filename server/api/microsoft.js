@@ -1,4 +1,5 @@
 var requestPromise = require('request-promise');
+
 function MicrosoftVision() {
   var microsoftToken = '03e650f6c3cf468e86ade9346d927638';
 

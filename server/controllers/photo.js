@@ -8,8 +8,8 @@ var microsoft = require('../api/microsoft')
 function PhotoController(){
   
   this.upload = function (req, res) {
-    console.log('Photocontroller upload. username:', req.body);
     console.log(req.body)
+    //console.log('Photocontroller upload. username:', req.user.username);
     if (!req.file) {
       console.log('Multer S3 failed to save file');
       res.status(404).send();
@@ -41,12 +41,9 @@ function PhotoController(){
         }
        
       });
-        
-     //})
       
     };
-
-}
+  }
 }
 
 module.exports = new PhotoController();
