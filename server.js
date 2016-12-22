@@ -1,3 +1,6 @@
+var env = require('node-env-file')
+env('./.env')
+
 var express  = require( 'express' ),
     path     = require( 'path' ),
     bp       = require('body-parser'), 

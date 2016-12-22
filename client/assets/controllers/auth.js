@@ -26,5 +26,12 @@ app.controller('AuthController', function($scope, userFactory, $window, $locatio
     });
   };
 
+  $scope.uploadPic = function(file) {
+    console.log('file ', file);
+    userFactory.upload(file, function() {
+      console.log('upload successful');
+    })
+  }
+
 
 });

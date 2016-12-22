@@ -1,5 +1,5 @@
 
-app.factory('userFactory', function ($http, $location, $window) {
+app.factory('userFactory', function ($http, $location, $window, Upload) {
   var factory = {};
   factory.signin = function (user, callback) {
     $http.post('/signIn', user).then(function(returned_data) {
@@ -36,6 +36,34 @@ app.factory('userFactory', function ($http, $location, $window) {
     $window.localStorage.removeItem('manjula');
     $location.path('/');
   };
+  factory.upload = function (file, callback) {
+    console.log('file  :', file)
+    var uploadfile = {};
+    uploadfile.file = file;
+    Upload.upload({
+                url: '/upload', 
+                data: uploadfile 
+    }).then(function (resp) { 
+      // if(resp.data.error_code === 0){ 
+      //     $window.alert('Success ' + resp.config.data.file.name + 'uploaded. Response: ');
+      // } else {
+      //     $window.alert('an error occured');
+      // }
+      console.log('response ', resp)
+    }, function (resp) { //catch error
+      console.log('Error status: ' + resp.status);
+      $window.alert('Error status: ' + resp.status);
+    }, function (evt) { 
+      console.log(evt);
+      var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+      console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      callback(progressPercentage)
+      // = 'progress: ' + progressPercentage + '% '; // capture upload progress
+    });
+  };
+
+
+
   return factory;
   
 });
