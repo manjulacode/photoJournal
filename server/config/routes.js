@@ -31,4 +31,5 @@ module.exports = function(app){
   app.post('/signUp', login.signUp);
   app.post('/signIn', login.signIn);
   app.post('/upload', upload.single('file'), photo.upload); 
+  app.get('/user/:username',  photo.getUserPhotos); 
 }

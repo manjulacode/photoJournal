@@ -56,7 +56,9 @@ function AuthController(){
         }
       }
     })
-  }
+  };
+
+
 }
 
 module.exports = new AuthController();

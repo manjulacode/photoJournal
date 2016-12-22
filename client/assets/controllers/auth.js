@@ -3,11 +3,15 @@ app.controller('AuthController', function($scope, userFactory, $window, $locatio
 
   $scope.user = {};
   $scope.errorMsg = '';
+  $scope.userPhotos = {};
+
   $scope.signin = function () {
     userFactory.signin($scope.user, function (data) {
       console.log('token ', data)
       if (data.token) {
         $window.localStorage.setItem('userToken', data.token);
+        $window.localStorage.setItem('username', $scope.user.username);
+        $scope.getPics();
         $location.path('/users/dash/');
       } else {
         console.log('error: ', data.error)
@@ -22,6 +26,8 @@ app.controller('AuthController', function($scope, userFactory, $window, $locatio
     userFactory.signup($scope.user, function (token) {
 
       $window.localStorage.setItem('userToken', data.token);
+      $window.localStorage.setItem('username', $scope.user.username);
+      $scope.getPics();
       $location.path('/users/dash/');
     });
   };
@@ -30,6 +36,14 @@ app.controller('AuthController', function($scope, userFactory, $window, $locatio
     console.log('file ', file);
     userFactory.upload(file, function() {
       console.log('upload successful');
+    })
+  };
+
+  $scope.getPics = function() {
+    console.log('getPics ');
+    userFactory.getPics(function(data) {
+      console.log('data from getPics: ', data);
+      $scope.userPhotos = data;
     })
   }
 

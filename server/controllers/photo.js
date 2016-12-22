@@ -8,7 +8,7 @@ var microsoft = require('../api/microsoft')
 function PhotoController(){
   
   this.upload = function (req, res) {
-    console.log(req.body)
+    console.log('req.body : ', req.body)
     //console.log('Photocontroller upload. username:', req.user.username);
     if (!req.file) {
       console.log('Multer S3 failed to save file');
@@ -38,12 +38,33 @@ function PhotoController(){
           })
 
           //now store the photo object in user table 
+          User.findOne({username: req.body.username})
+          .then(function(user) {
+            console.log(user)
+            user.photos.push(doc._id);   
+            user.save(function(err) {
+              res.status(201).send(doc._id);
+            });
+          })
+          .catch(function(err) {
+            console.log('Err saving user', err);
+            res.status(404).send();
+          });
         }
        
       });
-      
     };
+  };
+
+  this.getUserPhotos = function (req, res ) {
+    console.log('User get photos: ', req.params.username);
+    var username = req.params.username;
+    User.findOne({username:username}).populate('photos').exec(function(err, data) {
+      console.log('User get photos result: ', req.params.username, data);
+      res.json({'user': data});
+    });
   }
+
 }
 
 module.exports = new PhotoController();
